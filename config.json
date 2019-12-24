@@ -1,0 +1,28 @@
+{
+  "dusty" : {
+    "gate_close_pause" : 15,
+    "max_switches"     : 3,
+    "port"             : 51826
+  },
+
+  "servo" : {
+    "reference_clock_speed" : 25630710,
+    "frequency"             : 50,
+    "throttle"              : 1,
+    "open_time"             : 0.9,
+    "close_time"            : 0.87,
+    "min_pulse"             : 900,
+    "max_pulse"             : 2100
+
+  },
+
+  "rf" : {
+    "enabled"         : false,
+    "on_code"         : 8295329,
+    "off_code"        : 8295330,
+    "pin"             : 17,
+    "tx_repeat"       : 10,
+    "tx_proto"        : 1,
+    "tx_pulselength"  : 355
+  }
+}
