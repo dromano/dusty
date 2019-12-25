@@ -1,0 +1,14 @@
+[Unit]
+Description = Dusty daemon
+After = local-fs.target network-online.target pigpiod.service
+
+[Service]
+User = dusty
+# It's a good idea to use some unprivileged system user
+# Script starting HAP-python, e.g. main.py
+# Be careful to set any paths you use, e.g. for persisting the state.
+WorkingDirectory=/home/dusty/.dusty
+ExecStart = /usr/bin/python3 hap_dusty.py
+
+[Install]
+WantedBy = multi-user.target
