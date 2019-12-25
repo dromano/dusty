@@ -3,6 +3,7 @@ from rpi_rf import RFDevice
 from adafruit_motor import servo
 import logging
 import time
+from dusty.shutdownswitch import ShutdownSwitch
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +28,8 @@ class DustyBridge(Bridge):
         for pin in range(max_switches):
             self.servos[pin] = servo.ContinuousServo(pca.channels[pin], min_pulse=self.config.servo.min_pulse, max_pulse=self.config.servo.max_pulse)
             self.add_accessory(DustySwitch(self, pin, driver, "Dusty Switch #"+str(pin)))
+        shutdown_switch = ShutdownSwitch(driver,"Halt")
+        self.add_accessory(shutdown_switch)
 
     def turn_on(self, switch):
         if self.active_switch:
